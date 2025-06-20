@@ -66,10 +66,23 @@
             animation: fadeInUp 1s ease-out;
         }
 
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .logo-image {
+            width: 120px;
+            height: auto;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+        }
+
         .logo {
             font-size: 2.5rem;
             font-weight: 700;
-            margin-bottom: 2rem;
             letter-spacing: -0.02em;
         }
 
@@ -833,6 +846,10 @@
                 font-size: 2rem;
             }
 
+            .logo-image {
+                width: 100px;
+            }
+
             .features-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
@@ -930,7 +947,10 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <div class="logo">Pixel & Co.</div>
+                <div class="logo-container">
+                    <img src="logo.png" alt="Pixel & Co. Logo" class="logo-image">
+                    <div class="logo">Pixel & Co.</div>
+                </div>
                 <h1>Otomasi Cerdas. Layanan Tanpa Henti.</h1>
                 <p>Tingkatkan penjualan dan pelayanan dengan chatbot & automation dari Pixel & Co.</p>
                 <a href="#features" class="cta-button">Coba Sekarang</a>
