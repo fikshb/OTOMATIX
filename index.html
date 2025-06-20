@@ -1393,7 +1393,7 @@
             <div class="fade-in">
                 <h2>Siap buat bisnismu lebih otomatis?</h2>
                 <p>Jangan biarkan kompetitor unggul. Mulai transformasi digital bisnis Anda hari ini dengan solusi otomasi terdepan dari Pixel & Co.</p>
-                <a href="https://wa.me/6282131660176?text=Halo%20Pixel%20%26%20Co%2C%20saya%20ingin%20jadwalkan%20konsultasi%20gratis%20tentang%20otomasi%20bisnis." class="cta-button-large" target="_blank">Chat Kami Sekarang</a>
+                <a href="https://wa.me/6282131660176?text=Halo%20Pixel%20%26%20Co,%20saya%20ingin%20jadwalkan%20konsultasi%20gratis%20tentang%20otomasi%20bisnis." class="cta-button-large" target="_blank" rel="noopener noreferrer">Chat Kami Sekarang</a>
             </div>
         </div>
     </section>
@@ -1519,6 +1519,7 @@
                     }
                 } catch (error) {
                     // Network error
+                    console.error('Form submission error:', error);
                     formMessage.textContent = 'Terjadi kesalahan koneksi. Silakan coba lagi.';
                     formMessage.className = 'form-message error';
                     formMessage.style.display = 'block';
@@ -1538,6 +1539,12 @@
             if (hero) {
                 hero.style.transform = `translateY(${scrolled * 0.5}px)`;
             }
+        });
+
+        // Global error handler for unhandled rejections
+        window.addEventListener('unhandledrejection', function(event) {
+            console.error('Unhandled promise rejection:', event.reason);
+            event.preventDefault();
         });
 
         // WhatsApp button opens directly in new tab
