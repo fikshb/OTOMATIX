@@ -1393,7 +1393,7 @@
             <div class="fade-in">
                 <h2>Siap buat bisnismu lebih otomatis?</h2>
                 <p>Jangan biarkan kompetitor unggul. Mulai transformasi digital bisnis Anda hari ini dengan solusi otomasi terdepan dari Pixel & Co.</p>
-                <a href="#contact" class="cta-button-large">Jadwalkan Konsultasi Gratis</a>
+                <a href="https://wa.me/6282131660176?text=Halo%20Pixel%20%26%20Co%2C%20saya%20ingin%20jadwalkan%20konsultasi%20gratis%20tentang%20otomasi%20bisnis." class="cta-button-large" target="_blank">Chat Kami Sekarang</a>
             </div>
         </div>
     </section>
@@ -1540,19 +1540,7 @@
             }
         });
 
-        // Add loading state to CTA buttons
-        document.querySelectorAll('.cta-button, .cta-button-large').forEach(button => {
-            button.addEventListener('click', function(e) {
-                if (this.getAttribute('href') === '#contact') {
-                    e.preventDefault();
-                    this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Menghubungkan...';
-                    setTimeout(() => {
-                        this.innerHTML = 'Jadwalkan Konsultasi Gratis';
-                        alert('Terima kasih! Tim kami akan segera menghubungi Anda.');
-                    }, 2000);
-                }
-            });
-        });
+        // WhatsApp button opens directly in new tab
     </script>
 </body>
 </html>
