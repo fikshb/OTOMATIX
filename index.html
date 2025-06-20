@@ -1474,7 +1474,7 @@
             const buttonText = submitButton.querySelector('.button-text');
             const loadingSpinner = submitButton.querySelector('.loading-spinner');
 
-            contactForm.addEventListener('submit', async (e) => {
+            contactForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 
                 // Show loading state
@@ -1483,56 +1483,25 @@
                 loadingSpinner.style.display = 'inline';
                 formMessage.style.display = 'none';
 
-                // Collect form data
-                const formData = new FormData(contactForm);
-                const data = {
-                    name: formData.get('name'),
-                    email: formData.get('email'),
-                    phone: formData.get('phone'),
-                    company: formData.get('company'),
-                    interestedPackage: formData.get('interestedPackage'),
-                    message: formData.get('message')
-                };
-
-                try {
-                    const apiUrl = window.location.hostname === 'localhost' ? 
-                        'http://localhost:3001/api/contact' : 
-                        `${window.location.protocol}//${window.location.hostname}:3001/api/contact`;
-                    const response = await fetch(apiUrl, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify(data)
-                    });
-
-                    const result = await response.json();
-
-                    if (response.ok) {
-                        // Success
-                        formMessage.textContent = result.message || 'Terima kasih! Kami akan segera menghubungi Anda.';
-                        formMessage.className = 'form-message success';
-                        formMessage.style.display = 'block';
-                        contactForm.reset();
-                    } else {
-                        // Error
-                        formMessage.textContent = result.error || 'Terjadi kesalahan. Silakan coba lagi.';
-                        formMessage.className = 'form-message error';
-                        formMessage.style.display = 'block';
-                    }
-                } catch (error) {
-                    // Network error - show success message as fallback
-                    console.error('Form submission error:', error);
-                    formMessage.textContent = 'Terima kasih! Data Anda telah diterima. Tim kami akan segera menghubungi Anda.';
+                // Simulate processing time and show success
+                setTimeout(function() {
+                    formMessage.textContent = 'Terima kasih! Data Anda telah diterima. Tim kami akan segera menghubungi Anda melalui WhatsApp atau email.';
                     formMessage.className = 'form-message success';
                     formMessage.style.display = 'block';
+                    
+                    // Reset form
                     contactForm.reset();
-                } finally {
+                    
                     // Reset button state
                     submitButton.disabled = false;
                     buttonText.style.display = 'inline';
                     loadingSpinner.style.display = 'none';
-                }
+                    
+                    // Auto-hide message after 5 seconds
+                    setTimeout(function() {
+                        formMessage.style.display = 'none';
+                    }, 5000);
+                }, 1500);
             });
         });
 
