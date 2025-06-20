@@ -358,6 +358,175 @@
             transform: translateY(0);
         }
 
+        /* Pricing Section */
+        .pricing {
+            padding: 100px 0;
+            background: var(--gray-50);
+        }
+
+        .pricing-category {
+            margin-bottom: 4rem;
+        }
+
+        .category-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            text-align: center;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .category-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--light-teal));
+            border-radius: 2px;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .pricing-grid.corporate {
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        }
+
+        .pricing-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            border: 2px solid transparent;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-color: var(--light-teal);
+        }
+
+        .pricing-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--light-teal);
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-8px);
+        }
+
+        .pricing-card.enterprise {
+            background: linear-gradient(135deg, var(--primary-dark), var(--teal-blue));
+            color: var(--white);
+        }
+
+        .pricing-card.maintenance {
+            background: linear-gradient(135deg, var(--light-teal), var(--primary-blue));
+            color: var(--white);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--light-teal);
+            color: var(--white);
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .pricing-card.enterprise .pricing-header,
+        .pricing-card.maintenance .pricing-header {
+            border-bottom-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .pricing-header h4 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+        }
+
+        .pricing-card.enterprise .pricing-header h4,
+        .pricing-card.maintenance .pricing-header h4 {
+            color: var(--white);
+        }
+
+        .price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--light-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-card.enterprise .price,
+        .pricing-card.maintenance .price {
+            color: var(--white);
+        }
+
+        .price-note {
+            font-size: 0.9rem;
+            color: var(--gray-600);
+            opacity: 0.8;
+        }
+
+        .pricing-card.enterprise .price-note,
+        .pricing-card.maintenance .price-note {
+            color: var(--white);
+            opacity: 0.9;
+        }
+
+        .pricing-features ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .pricing-features li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .pricing-features i {
+            color: var(--light-teal);
+            margin-right: 0.75rem;
+            font-size: 0.9rem;
+        }
+
+        .pricing-card.enterprise .pricing-features i,
+        .pricing-card.maintenance .pricing-features i {
+            color: var(--white);
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .hero h1 {
@@ -404,8 +573,27 @@
             .features,
             .demo,
             .testimonial,
+            .pricing,
             .final-cta {
                 padding: 60px 0;
+            }
+
+            .pricing-grid,
+            .pricing-grid.corporate {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .pricing-card.featured {
+                transform: none;
+            }
+
+            .pricing-card.featured:hover {
+                transform: translateY(-8px);
+            }
+
+            .category-title {
+                font-size: 1.5rem;
             }
         }
 
@@ -507,6 +695,130 @@
                     <div class="author-info">
                         <h4>Ahmad Santoso</h4>
                         <p>CEO, TechStart Indonesia</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>💼 Paket Harga Pixel & Co.</h2>
+                <p>Solusi otomasi yang sesuai dengan kebutuhan dan budget bisnis Anda</p>
+            </div>
+            
+            <!-- UMKM Packages -->
+            <div class="pricing-category fade-in">
+                <h3 class="category-title">Untuk UMKM</h3>
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h4>Basic Chatbot</h4>
+                            <div class="price">Rp500.000</div>
+                            <div class="price-note">Setup sekali</div>
+                        </div>
+                        <div class="pricing-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Auto-reply WhatsApp & Instagram</li>
+                                <li><i class="fas fa-check"></i> Katalog produk digital</li>
+                                <li><i class="fas fa-check"></i> Template pesan otomatis</li>
+                                <li><i class="fas fa-check"></i> Setup dan konfigurasi awal</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="pricing-card featured">
+                        <div class="popular-badge">Populer</div>
+                        <div class="pricing-header">
+                            <h4>Automation Starter</h4>
+                            <div class="price">Rp1.500.000</div>
+                            <div class="price-note">Setup sekali</div>
+                        </div>
+                        <div class="pricing-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Follow-up otomatis leads</li>
+                                <li><i class="fas fa-check"></i> Flow percakapan sederhana</li>
+                                <li><i class="fas fa-check"></i> Multi-platform (WA, IG, FB)</li>
+                                <li><i class="fas fa-check"></i> Integrasi form kontak</li>
+                                <li><i class="fas fa-check"></i> Laporan mingguan</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h4>Full Automation</h4>
+                            <div class="price">Rp3.500.000</div>
+                            <div class="price-note">Setup sekali</div>
+                        </div>
+                        <div class="pricing-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Chatbot cerdas lengkap</li>
+                                <li><i class="fas fa-check"></i> Broadcast campaign otomatis</li>
+                                <li><i class="fas fa-check"></i> Dashboard pemantauan</li>
+                                <li><i class="fas fa-check"></i> Integrasi CRM sederhana</li>
+                                <li><i class="fas fa-check"></i> Training & support 1 bulan</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Corporate Packages -->
+            <div class="pricing-category fade-in">
+                <h3 class="category-title">Untuk Perusahaan</h3>
+                <div class="pricing-grid corporate">
+                    <div class="pricing-card enterprise">
+                        <div class="pricing-header">
+                            <h4>Custom Automation Setup</h4>
+                            <div class="price">Rp10.000.000</div>
+                            <div class="price-note">Paket lengkap</div>
+                        </div>
+                        <div class="pricing-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Integrasi multi-platform advanced</li>
+                                <li><i class="fas fa-check"></i> API custom & webhook</li>
+                                <li><i class="fas fa-check"></i> Dashboard analytics lanjutan</li>
+                                <li><i class="fas fa-check"></i> Integrasi sistem existing</li>
+                                <li><i class="fas fa-check"></i> Training tim & dokumentasi</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="pricing-card enterprise">
+                        <div class="pricing-header">
+                            <h4>AI Smart Chatbot</h4>
+                            <div class="price">Rp15.000.000</div>
+                            <div class="price-note">Paket premium</div>
+                        </div>
+                        <div class="pricing-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Bot dengan NLP canggih</li>
+                                <li><i class="fas fa-check"></i> Analisis percakapan AI</li>
+                                <li><i class="fas fa-check"></i> FAQ cerdas & learning</li>
+                                <li><i class="fas fa-check"></i> Sentiment analysis</li>
+                                <li><i class="fas fa-check"></i> Custom AI model training</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="pricing-card maintenance">
+                        <div class="pricing-header">
+                            <h4>Langganan Maintenance</h4>
+                            <div class="price">Rp500k - 2Jt</div>
+                            <div class="price-note">Per bulan</div>
+                        </div>
+                        <div class="pricing-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Support teknis 24/7</li>
+                                <li><i class="fas fa-check"></i> Update rutin sistem</li>
+                                <li><i class="fas fa-check"></i> Backup & monitoring</li>
+                                <li><i class="fas fa-check"></i> Optimisasi performa</li>
+                                <li><i class="fas fa-check"></i> Laporan bulanan detail</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
