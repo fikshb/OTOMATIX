@@ -527,6 +527,154 @@
             color: var(--white);
         }
 
+        /* Contact Form Section */
+        .contact-form {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 2rem;
+        }
+
+        .benefits-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 3rem;
+        }
+
+        .benefits-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .benefits-list i {
+            color: var(--light-teal);
+            margin-right: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-details {
+            background: var(--gray-50);
+            padding: 2rem;
+            border-radius: 12px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .contact-item i {
+            color: var(--primary-blue);
+            margin-right: 1rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        .contact-form-container {
+            background: var(--gray-50);
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 500;
+            color: var(--gray-800);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid var(--gray-100);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            background: var(--white);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--light-teal);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .submit-button {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary-blue), var(--light-teal));
+            color: var(--white);
+            padding: 16px 32px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+        }
+
+        .submit-button:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .form-message {
+            margin-top: 1rem;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-weight: 500;
+            text-align: center;
+            display: none;
+        }
+
+        .form-message.success {
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #34d399;
+        }
+
+        .form-message.error {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #f87171;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .hero h1 {
@@ -594,6 +742,19 @@
 
             .category-title {
                 font-size: 1.5rem;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .contact-info h3 {
+                font-size: 1.5rem;
+            }
+
+            .contact-form-container {
+                padding: 2rem;
             }
         }
 
@@ -825,6 +986,96 @@
         </div>
     </section>
 
+    <!-- Contact Form Section -->
+    <section class="contact-form" id="contact">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Hubungi Kami Sekarang</h2>
+                <p>Dapatkan konsultasi gratis dan penawaran khusus untuk bisnis Anda</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info fade-in">
+                    <h3>Mengapa Memilih Pixel & Co.?</h3>
+                    <ul class="benefits-list">
+                        <li><i class="fas fa-check-circle"></i> Tim ahli dengan pengalaman 5+ tahun</li>
+                        <li><i class="fas fa-check-circle"></i> Teknologi AI terdepan dan terintegrasi</li>
+                        <li><i class="fas fa-check-circle"></i> Support 24/7 dengan response time cepat</li>
+                        <li><i class="fas fa-check-circle"></i> ROI terbukti meningkat hingga 300%</li>
+                        <li><i class="fas fa-check-circle"></i> Garansi kepuasan 100% money back</li>
+                    </ul>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@pixelco.id</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+62 812-3456-7890</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Jakarta, Indonesia</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container fade-in">
+                    <form id="contactForm" class="contact-form-inner">
+                        <div class="form-group">
+                            <label for="name">Nama Lengkap *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Nomor WhatsApp</label>
+                            <input type="tel" id="phone" name="phone" placeholder="08xxxxxxxxxx">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="company">Nama Perusahaan</label>
+                            <input type="text" id="company" name="company">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="interestedPackage">Paket yang Diminati</label>
+                            <select id="interestedPackage" name="interestedPackage">
+                                <option value="">Pilih paket...</option>
+                                <option value="Basic Chatbot">Basic Chatbot - Rp500.000</option>
+                                <option value="Automation Starter">Automation Starter - Rp1.500.000</option>
+                                <option value="Full Automation">Full Automation - Rp3.500.000</option>
+                                <option value="Custom Automation Setup">Custom Automation Setup - Rp10.000.000</option>
+                                <option value="AI Smart Chatbot">AI Smart Chatbot - Rp15.000.000</option>
+                                <option value="Maintenance">Langganan Maintenance</option>
+                                <option value="Konsultasi">Konsultasi Gratis</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Pesan / Kebutuhan Spesifik</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Ceritakan kebutuhan bisnis Anda..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-button">
+                            <span class="button-text">Kirim Pesan</span>
+                            <span class="loading-spinner" style="display: none;">
+                                <i class="fas fa-spinner fa-spin"></i> Mengirim...
+                            </span>
+                        </button>
+                        
+                        <div id="formMessage" class="form-message"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Final CTA Section -->
     <section class="final-cta">
         <div class="container">
@@ -890,6 +1141,76 @@
             if (testimonialContent) {
                 observer.observe(testimonialContent);
             }
+
+            // Observe pricing cards
+            document.querySelectorAll('.pricing-card').forEach((card, index) => {
+                setTimeout(() => {
+                    observer.observe(card);
+                }, index * 100);
+            });
+
+            // Contact form submission handler
+            const contactForm = document.getElementById('contactForm');
+            const formMessage = document.getElementById('formMessage');
+            const submitButton = contactForm.querySelector('.submit-button');
+            const buttonText = submitButton.querySelector('.button-text');
+            const loadingSpinner = submitButton.querySelector('.loading-spinner');
+
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                // Show loading state
+                submitButton.disabled = true;
+                buttonText.style.display = 'none';
+                loadingSpinner.style.display = 'inline';
+                formMessage.style.display = 'none';
+
+                // Collect form data
+                const formData = new FormData(contactForm);
+                const data = {
+                    name: formData.get('name'),
+                    email: formData.get('email'),
+                    phone: formData.get('phone'),
+                    company: formData.get('company'),
+                    interestedPackage: formData.get('interestedPackage'),
+                    message: formData.get('message')
+                };
+
+                try {
+                    const response = await fetch('http://localhost:3001/api/contact', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(data)
+                    });
+
+                    const result = await response.json();
+
+                    if (response.ok) {
+                        // Success
+                        formMessage.textContent = result.message || 'Terima kasih! Kami akan segera menghubungi Anda.';
+                        formMessage.className = 'form-message success';
+                        formMessage.style.display = 'block';
+                        contactForm.reset();
+                    } else {
+                        // Error
+                        formMessage.textContent = result.error || 'Terjadi kesalahan. Silakan coba lagi.';
+                        formMessage.className = 'form-message error';
+                        formMessage.style.display = 'block';
+                    }
+                } catch (error) {
+                    // Network error
+                    formMessage.textContent = 'Terjadi kesalahan koneksi. Silakan coba lagi.';
+                    formMessage.className = 'form-message error';
+                    formMessage.style.display = 'block';
+                } finally {
+                    // Reset button state
+                    submitButton.disabled = false;
+                    buttonText.style.display = 'inline';
+                    loadingSpinner.style.display = 'none';
+                }
+            });
         });
 
         // Add scroll effect to hero background
