@@ -1467,44 +1467,44 @@
                 }, index * 100);
             });
 
-            // Simple form submission handler
-            setTimeout(function() {
-                var contactForm = document.getElementById('contactForm');
-                var formMessage = document.getElementById('formMessage');
-                
-                if (contactForm && formMessage) {
-                    contactForm.onsubmit = function(e) {
-                        e.preventDefault();
-                        
-                        var submitButton = contactForm.querySelector('.submit-button');
-                        var buttonText = submitButton ? submitButton.querySelector('.button-text') : null;
-                        var loadingSpinner = submitButton ? submitButton.querySelector('.loading-spinner') : null;
-                        
-                        if (submitButton) submitButton.disabled = true;
-                        if (buttonText) buttonText.style.display = 'none';
-                        if (loadingSpinner) loadingSpinner.style.display = 'inline';
-                        formMessage.style.display = 'none';
-
-                        setTimeout(function() {
-                            formMessage.textContent = 'Terima kasih! Data Anda telah diterima. Tim kami akan segera menghubungi Anda melalui WhatsApp atau email.';
-                            formMessage.className = 'form-message success';
-                            formMessage.style.display = 'block';
-                            
-                            contactForm.reset();
-                            
-                            if (submitButton) submitButton.disabled = false;
-                            if (buttonText) buttonText.style.display = 'inline';
-                            if (loadingSpinner) loadingSpinner.style.display = 'none';
-                            
-                            setTimeout(function() {
-                                formMessage.style.display = 'none';
-                            }, 5000);
-                        }, 1500);
-                        
-                        return false;
-                    };
-                }
-            }, 1000);
+            // WhatsApp form handler
+            var contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.onsubmit = function(e) {
+                    e.preventDefault();
+                    
+                    // Ambil data form
+                    var nama = document.getElementById('name').value || '';
+                    var email = document.getElementById('email').value || '';
+                    var phone = document.getElementById('phone').value || '';
+                    var company = document.getElementById('company').value || '';
+                    var paket = document.getElementById('interestedPackage').value || '';
+                    var message = document.getElementById('message').value || '';
+                    
+                    // Buat pesan WhatsApp
+                    var whatsappMessage = 'Halo Pixel & Co, saya ingin konsultasi bisnis:\n\n';
+                    whatsappMessage += '📝 *Data Konsultasi*\n';
+                    whatsappMessage += '• Nama: ' + nama + '\n';
+                    whatsappMessage += '• Email: ' + email + '\n';
+                    if (phone) whatsappMessage += '• WhatsApp: ' + phone + '\n';
+                    if (company) whatsappMessage += '• Perusahaan: ' + company + '\n';
+                    if (paket) whatsappMessage += '• Paket: ' + paket + '\n';
+                    if (message) whatsappMessage += '• Pesan: ' + message + '\n';
+                    whatsappMessage += '\nTerima kasih!';
+                    
+                    // Encode pesan untuk URL
+                    var encodedMessage = encodeURIComponent(whatsappMessage);
+                    
+                    // Buka WhatsApp
+                    var waURL = 'https://wa.me/6282131660176?text=' + encodedMessage;
+                    window.open(waURL, '_blank');
+                    
+                    // Reset form
+                    contactForm.reset();
+                    
+                    return false;
+                };
+            }
         });
 
         // Add scroll effect to hero background
