@@ -527,6 +527,150 @@
             color: var(--white);
         }
 
+        /* Website Services Section */
+        .website-services {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .website-category {
+            margin-bottom: 4rem;
+        }
+
+        .website-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .website-grid.corporate {
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        }
+
+        .website-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            border: 2px solid var(--gray-100);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .website-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-color: var(--light-teal);
+        }
+
+        .website-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .website-card.featured {
+            border-color: var(--light-teal);
+            transform: scale(1.05);
+        }
+
+        .website-card.featured:hover {
+            transform: scale(1.05) translateY(-8px);
+        }
+
+        .website-card.enterprise {
+            background: linear-gradient(135deg, var(--primary-dark), var(--teal-blue));
+            color: var(--white);
+            border-color: transparent;
+        }
+
+        .website-card.premium {
+            background: linear-gradient(135deg, var(--light-teal), var(--primary-blue));
+            color: var(--white);
+            border-color: transparent;
+        }
+
+        .website-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .website-card.enterprise .website-header,
+        .website-card.premium .website-header {
+            border-bottom-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .website-header h4 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+        }
+
+        .website-card.enterprise .website-header h4,
+        .website-card.premium .website-header h4 {
+            color: var(--white);
+        }
+
+        .website-features ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 2rem;
+        }
+
+        .website-features li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .website-features i {
+            color: var(--light-teal);
+            margin-right: 0.75rem;
+            font-size: 0.9rem;
+        }
+
+        .website-card.enterprise .website-features i,
+        .website-card.premium .website-features i {
+            color: var(--white);
+        }
+
+        .website-cta-btn {
+            width: 100%;
+            background: var(--light-teal);
+            color: var(--white);
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .website-cta-btn:hover {
+            background: var(--teal-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(6, 182, 212, 0.3);
+        }
+
+        .website-card.enterprise .website-cta-btn,
+        .website-card.premium .website-cta-btn {
+            background: var(--white);
+            color: var(--primary-dark);
+        }
+
+        .website-card.enterprise .website-cta-btn:hover,
+        .website-card.premium .website-cta-btn:hover {
+            background: var(--gray-100);
+        }
+
         /* Contact Form Section */
         .contact-form {
             padding: 100px 0;
@@ -722,21 +866,26 @@
             .demo,
             .testimonial,
             .pricing,
+            .website-services,
             .final-cta {
                 padding: 60px 0;
             }
 
             .pricing-grid,
-            .pricing-grid.corporate {
+            .pricing-grid.corporate,
+            .website-grid,
+            .website-grid.corporate {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
             }
 
-            .pricing-card.featured {
+            .pricing-card.featured,
+            .website-card.featured {
                 transform: none;
             }
 
-            .pricing-card.featured:hover {
+            .pricing-card.featured:hover,
+            .website-card.featured:hover {
                 transform: translateY(-8px);
             }
 
@@ -986,6 +1135,137 @@
         </div>
     </section>
 
+    <!-- Website Services Section -->
+    <section class="website-services" id="website-services">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>🌐 Jasa Landing Page & Website</h2>
+                <p>Solusi pembuatan website profesional untuk mendukung strategi digital bisnis Anda</p>
+            </div>
+            
+            <!-- UMKM Website Packages -->
+            <div class="website-category fade-in">
+                <h3 class="category-title">Untuk UMKM</h3>
+                <div class="website-grid">
+                    <div class="website-card">
+                        <div class="website-header">
+                            <h4>Landing Page Starter</h4>
+                            <div class="price">Rp1.000.000</div>
+                            <div class="price-note">Paket lengkap</div>
+                        </div>
+                        <div class="website-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> 1 halaman landing page</li>
+                                <li><i class="fas fa-check"></i> Desain responsif mobile-friendly</li>
+                                <li><i class="fas fa-check"></i> Call-to-action yang efektif</li>
+                                <li><i class="fas fa-check"></i> Form kontak terintegrasi</li>
+                                <li><i class="fas fa-check"></i> Tampilan profesional</li>
+                            </ul>
+                        </div>
+                        <button class="website-cta-btn">Minta Penawaran</button>
+                    </div>
+                    
+                    <div class="website-card featured">
+                        <div class="popular-badge">Populer</div>
+                        <div class="website-header">
+                            <h4>Landing Page + WhatsApp Bot</h4>
+                            <div class="price">Rp2.000.000</div>
+                            <div class="price-note">Paket combo</div>
+                        </div>
+                        <div class="website-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Halaman jualan yang menarik</li>
+                                <li><i class="fas fa-check"></i> Integrasi chatbot WhatsApp</li>
+                                <li><i class="fas fa-check"></i> Auto-reply untuk inquiries</li>
+                                <li><i class="fas fa-check"></i> Tracking konversi leads</li>
+                                <li><i class="fas fa-check"></i> Setup dan training</li>
+                            </ul>
+                        </div>
+                        <button class="website-cta-btn">Minta Penawaran</button>
+                    </div>
+                    
+                    <div class="website-card">
+                        <div class="website-header">
+                            <h4>Mini Website (3–5 Halaman)</h4>
+                            <div class="price">Rp3.500.000</div>
+                            <div class="price-note">Website lengkap</div>
+                        </div>
+                        <div class="website-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> 3-5 halaman website</li>
+                                <li><i class="fas fa-check"></i> Halaman tentang & layanan</li>
+                                <li><i class="fas fa-check"></i> Halaman kontak & testimoni</li>
+                                <li><i class="fas fa-check"></i> Desain custom sesuai brand</li>
+                                <li><i class="fas fa-check"></i> Optimasi SEO dasar</li>
+                            </ul>
+                        </div>
+                        <button class="website-cta-btn">Minta Penawaran</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Corporate Website Packages -->
+            <div class="website-category fade-in">
+                <h3 class="category-title">Untuk Perusahaan</h3>
+                <div class="website-grid corporate">
+                    <div class="website-card enterprise">
+                        <div class="website-header">
+                            <h4>Professional Landing Page</h4>
+                            <div class="price">Rp5.000.000</div>
+                            <div class="price-note">Premium design</div>
+                        </div>
+                        <div class="website-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Desain custom profesional</li>
+                                <li><i class="fas fa-check"></i> Animasi ringan & interaktif</li>
+                                <li><i class="fas fa-check"></i> Copywriting yang persuasif</li>
+                                <li><i class="fas fa-check"></i> Multiple CTA strategis</li>
+                                <li><i class="fas fa-check"></i> SEO-ready & fast loading</li>
+                            </ul>
+                        </div>
+                        <button class="website-cta-btn">Minta Penawaran</button>
+                    </div>
+                    
+                    <div class="website-card enterprise">
+                        <div class="website-header">
+                            <h4>Company Website (5–10 Halaman)</h4>
+                            <div class="price">Rp10.000.000</div>
+                            <div class="price-note">Full website</div>
+                        </div>
+                        <div class="website-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Profil bisnis lengkap</li>
+                                <li><i class="fas fa-check"></i> Halaman produk/layanan detail</li>
+                                <li><i class="fas fa-check"></i> Blog & content management</li>
+                                <li><i class="fas fa-check"></i> Form kontak advanced</li>
+                                <li><i class="fas fa-check"></i> CMS untuk update konten</li>
+                            </ul>
+                        </div>
+                        <button class="website-cta-btn">Minta Penawaran</button>
+                    </div>
+                    
+                    <div class="website-card premium">
+                        <div class="website-header">
+                            <h4>Website + Automation System</h4>
+                            <div class="price">Rp20.000.000</div>
+                            <div class="price-note">All-in-one solution</div>
+                        </div>
+                        <div class="website-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Website profesional lengkap</li>
+                                <li><i class="fas fa-check"></i> Chatbot terintegrasi</li>
+                                <li><i class="fas fa-check"></i> Sistem auto-follow-up</li>
+                                <li><i class="fas fa-check"></i> Dashboard laporan analytics</li>
+                                <li><i class="fas fa-check"></i> Training & maintenance 3 bulan</li>
+                            </ul>
+                        </div>
+                        <button class="website-cta-btn">Minta Penawaran</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Form Section -->
     <section class="contact-form" id="contact">
         <div class="container">
@@ -1053,6 +1333,12 @@
                                 <option value="Custom Automation Setup">Custom Automation Setup - Rp10.000.000</option>
                                 <option value="AI Smart Chatbot">AI Smart Chatbot - Rp15.000.000</option>
                                 <option value="Maintenance">Langganan Maintenance</option>
+                                <option value="Landing Page Starter">Landing Page Starter - Rp1.000.000</option>
+                                <option value="Landing Page + WhatsApp Bot">Landing Page + WhatsApp Bot - Rp2.000.000</option>
+                                <option value="Mini Website">Mini Website (3-5 Halaman) - Rp3.500.000</option>
+                                <option value="Professional Landing Page">Professional Landing Page - Rp5.000.000</option>
+                                <option value="Company Website">Company Website (5-10 Halaman) - Rp10.000.000</option>
+                                <option value="Website + Automation System">Website + Automation System - Rp20.000.000</option>
                                 <option value="Konsultasi">Konsultasi Gratis</option>
                             </select>
                         </div>
@@ -1144,6 +1430,13 @@
 
             // Observe pricing cards
             document.querySelectorAll('.pricing-card').forEach((card, index) => {
+                setTimeout(() => {
+                    observer.observe(card);
+                }, index * 100);
+            });
+
+            // Observe website service cards
+            document.querySelectorAll('.website-card').forEach((card, index) => {
                 setTimeout(() => {
                     observer.observe(card);
                 }, index * 100);
