@@ -1468,41 +1468,52 @@
             });
 
             // Contact form submission handler
-            const contactForm = document.getElementById('contactForm');
-            const formMessage = document.getElementById('formMessage');
-            const submitButton = contactForm.querySelector('.submit-button');
-            const buttonText = submitButton.querySelector('.button-text');
-            const loadingSpinner = submitButton.querySelector('.loading-spinner');
+            try {
+                const contactForm = document.getElementById('contactForm');
+                if (contactForm) {
+                    const formMessage = document.getElementById('formMessage');
+                    const submitButton = contactForm.querySelector('.submit-button');
+                    
+                    if (submitButton) {
+                        const buttonText = submitButton.querySelector('.button-text');
+                        const loadingSpinner = submitButton.querySelector('.loading-spinner');
 
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Show loading state
-                submitButton.disabled = true;
-                buttonText.style.display = 'none';
-                loadingSpinner.style.display = 'inline';
-                formMessage.style.display = 'none';
+                        contactForm.addEventListener('submit', function(e) {
+                            e.preventDefault();
+                            
+                            // Show loading state
+                            submitButton.disabled = true;
+                            if (buttonText) buttonText.style.display = 'none';
+                            if (loadingSpinner) loadingSpinner.style.display = 'inline';
+                            if (formMessage) formMessage.style.display = 'none';
 
-                // Simulate processing time and show success
-                setTimeout(function() {
-                    formMessage.textContent = 'Terima kasih! Data Anda telah diterima. Tim kami akan segera menghubungi Anda melalui WhatsApp atau email.';
-                    formMessage.className = 'form-message success';
-                    formMessage.style.display = 'block';
-                    
-                    // Reset form
-                    contactForm.reset();
-                    
-                    // Reset button state
-                    submitButton.disabled = false;
-                    buttonText.style.display = 'inline';
-                    loadingSpinner.style.display = 'none';
-                    
-                    // Auto-hide message after 5 seconds
-                    setTimeout(function() {
-                        formMessage.style.display = 'none';
-                    }, 5000);
-                }, 1500);
-            });
+                            // Process form and show success
+                            setTimeout(function() {
+                                if (formMessage) {
+                                    formMessage.textContent = 'Terima kasih! Data Anda telah diterima. Tim kami akan segera menghubungi Anda melalui WhatsApp atau email.';
+                                    formMessage.className = 'form-message success';
+                                    formMessage.style.display = 'block';
+                                }
+                                
+                                // Reset form
+                                contactForm.reset();
+                                
+                                // Reset button state
+                                submitButton.disabled = false;
+                                if (buttonText) buttonText.style.display = 'inline';
+                                if (loadingSpinner) loadingSpinner.style.display = 'none';
+                                
+                                // Auto-hide message after 5 seconds
+                                setTimeout(function() {
+                                    if (formMessage) formMessage.style.display = 'none';
+                                }, 5000);
+                            }, 1500);
+                        });
+                    }
+                }
+            } catch (error) {
+                console.log('Form initialization error:', error);
+            }
         });
 
         // Add scroll effect to hero background
@@ -1514,9 +1525,8 @@
             }
         });
 
-        // Global error handler for unhandled rejections
+        // Prevent any potential promise rejections
         window.addEventListener('unhandledrejection', function(event) {
-            console.error('Unhandled promise rejection:', event.reason);
             event.preventDefault();
         });
 
