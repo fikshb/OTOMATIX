@@ -1393,7 +1393,7 @@
             <div class="fade-in">
                 <h2>Siap buat bisnismu lebih otomatis?</h2>
                 <p>Jangan biarkan kompetitor unggul. Mulai transformasi digital bisnis Anda hari ini dengan solusi otomasi terdepan dari Pixel & Co.</p>
-                <a href="https://wa.me/6282131660176?text=Halo%20Pixel%20%26%20Co,%20saya%20ingin%20jadwalkan%20konsultasi%20gratis%20tentang%20otomasi%20bisnis." class="cta-button-large" target="_blank" rel="noopener noreferrer">Chat Kami Sekarang</a>
+                <a href="https://wa.me/6282131660176?text=Halo%20Pixel%20%26%20Co%2C%20saya%20ingin%20jadwalkan%20konsultasi%20gratis%20tentang%20otomasi%20bisnis." class="cta-button-large" target="_blank" rel="noopener noreferrer">Chat Kami Sekarang</a>
             </div>
         </div>
     </section>
@@ -1467,53 +1467,44 @@
                 }, index * 100);
             });
 
-            // Contact form submission handler
-            try {
-                const contactForm = document.getElementById('contactForm');
-                if (contactForm) {
-                    const formMessage = document.getElementById('formMessage');
-                    const submitButton = contactForm.querySelector('.submit-button');
-                    
-                    if (submitButton) {
-                        const buttonText = submitButton.querySelector('.button-text');
-                        const loadingSpinner = submitButton.querySelector('.loading-spinner');
+            // Simple form submission handler
+            setTimeout(function() {
+                var contactForm = document.getElementById('contactForm');
+                var formMessage = document.getElementById('formMessage');
+                
+                if (contactForm && formMessage) {
+                    contactForm.onsubmit = function(e) {
+                        e.preventDefault();
+                        
+                        var submitButton = contactForm.querySelector('.submit-button');
+                        var buttonText = submitButton ? submitButton.querySelector('.button-text') : null;
+                        var loadingSpinner = submitButton ? submitButton.querySelector('.loading-spinner') : null;
+                        
+                        if (submitButton) submitButton.disabled = true;
+                        if (buttonText) buttonText.style.display = 'none';
+                        if (loadingSpinner) loadingSpinner.style.display = 'inline';
+                        formMessage.style.display = 'none';
 
-                        contactForm.addEventListener('submit', function(e) {
-                            e.preventDefault();
+                        setTimeout(function() {
+                            formMessage.textContent = 'Terima kasih! Data Anda telah diterima. Tim kami akan segera menghubungi Anda melalui WhatsApp atau email.';
+                            formMessage.className = 'form-message success';
+                            formMessage.style.display = 'block';
                             
-                            // Show loading state
-                            submitButton.disabled = true;
-                            if (buttonText) buttonText.style.display = 'none';
-                            if (loadingSpinner) loadingSpinner.style.display = 'inline';
-                            if (formMessage) formMessage.style.display = 'none';
-
-                            // Process form and show success
+                            contactForm.reset();
+                            
+                            if (submitButton) submitButton.disabled = false;
+                            if (buttonText) buttonText.style.display = 'inline';
+                            if (loadingSpinner) loadingSpinner.style.display = 'none';
+                            
                             setTimeout(function() {
-                                if (formMessage) {
-                                    formMessage.textContent = 'Terima kasih! Data Anda telah diterima. Tim kami akan segera menghubungi Anda melalui WhatsApp atau email.';
-                                    formMessage.className = 'form-message success';
-                                    formMessage.style.display = 'block';
-                                }
-                                
-                                // Reset form
-                                contactForm.reset();
-                                
-                                // Reset button state
-                                submitButton.disabled = false;
-                                if (buttonText) buttonText.style.display = 'inline';
-                                if (loadingSpinner) loadingSpinner.style.display = 'none';
-                                
-                                // Auto-hide message after 5 seconds
-                                setTimeout(function() {
-                                    if (formMessage) formMessage.style.display = 'none';
-                                }, 5000);
-                            }, 1500);
-                        });
-                    }
+                                formMessage.style.display = 'none';
+                            }, 5000);
+                        }, 1500);
+                        
+                        return false;
+                    };
                 }
-            } catch (error) {
-                console.log('Form initialization error:', error);
-            }
+            }, 1000);
         });
 
         // Add scroll effect to hero background
@@ -1525,7 +1516,11 @@
             }
         });
 
-        // Prevent any potential promise rejections
+        // Prevent any errors from breaking the page
+        window.addEventListener('error', function(event) {
+            event.preventDefault();
+        });
+        
         window.addEventListener('unhandledrejection', function(event) {
             event.preventDefault();
         });
