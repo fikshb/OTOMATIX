@@ -1072,6 +1072,7 @@
         }
 
         .website-cta-btn {
+            display: block;
             width: 100%;
             background: var(--accent-cyan);
             color: var(--white);
@@ -1082,6 +1083,15 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
+            text-decoration: none !important;
+            text-align: center;
+        }
+
+        .website-cta-btn:hover,
+        .website-cta-btn:focus,
+        .website-cta-btn:active,
+        .website-cta-btn:visited {
+            text-decoration: none !important;
         }
 
         .website-cta-btn:hover {
