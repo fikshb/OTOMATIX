@@ -89,6 +89,8 @@ Changelog:
 - June 24, 2025. Initial setup
 - June 24, 2025. Successfully migrated from Replit Agent to Replit environment - all dependencies installed, database configured, both frontend and API servers running properly
 - June 24, 2025. Added complete AI automation demo section with local video player, 2-column responsive layout, and Indonesian content as requested
+- June 24, 2025. Fixed text visibility issues across all sections with proper contrast and readable colors
+- June 24, 2025. Updated contact information: email to otomatixdigital@gmail.com and phone to +62 821-3166-0176
 ```
 
 ## User Preferences
