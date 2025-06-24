@@ -88,6 +88,7 @@ Two main entities with relationship:
 Changelog:
 - June 24, 2025. Initial setup
 - June 24, 2025. Successfully migrated from Replit Agent to Replit environment - all dependencies installed, database configured, both frontend and API servers running properly
+- June 24, 2025. Added complete AI automation demo section with local video player, 2-column responsive layout, and Indonesian content as requested
 ```
 
 ## User Preferences
