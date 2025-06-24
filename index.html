@@ -486,24 +486,31 @@
             color: var(--white);
         }
 
-        .testimonial-content {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-            opacity: 0;
-            transform: translateY(30px);
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
         }
 
-        .testimonial-content.visible {
+        .testimonial-card {
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .testimonial-card.visible {
             opacity: 1;
             transform: translateY(0);
         }
 
         .testimonial-quote {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-style: italic;
             margin-bottom: 2rem;
             line-height: 1.6;
+            color: var(--white);
         }
 
         .testimonial-author {
@@ -523,16 +530,37 @@
             justify-content: center;
             font-size: 1.5rem;
             font-weight: 600;
+            color: var(--primary-navy);
         }
 
         .author-info h4 {
             font-weight: 600;
             margin-bottom: 0.25rem;
+            color: var(--white);
         }
 
         .author-info p {
             opacity: 0.8;
             font-size: 0.9rem;
+            color: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--white);
+            opacity: 0.9;
         }
 
         /* Final CTA Section */
@@ -1305,16 +1333,51 @@
     <!-- Testimonial Section -->
     <section class="testimonial" id="testimonial">
         <div class="container">
-            <div class="testimonial-content">
-                <div class="testimonial-quote">
-                    "Setelah pakai Otomatix, follow-up pelanggan jadi lebih cepat dan konversi meningkat! Tim support mereka juga sangat responsif dan profesional. Highly recommended!"
+            <div class="section-title fade-in">
+                <h2>Apa Kata Klien Kami</h2>
+                <p>Dengarkan pengalaman nyata dari bisnis yang telah berkembang bersama Otomatix</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">
+                        "Setelah pakai Otomatix, follow-up pelanggan jadi lebih cepat dan konversi meningkat! Tim support mereka juga sangat responsif dan profesional. Highly recommended!"
+                    </div>
+                    
+                    <div class="testimonial-author">
+                        <div class="author-avatar">HL</div>
+                        <div class="author-info">
+                            <h4>Helga Larasati</h4>
+                            <p>Owner, AISHAVCARE</p>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="testimonial-author">
-                    <div class="author-avatar">HL</div>
-                    <div class="author-info">
-                        <h4>Helga Larasati</h4>
-                        <p>Owner, AISHAVCARE</p>
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">
+                        "Dulu saya butuh waktu berhari-hari buat rekap leads iklan. Sekarang, dengan Otomatix, semua data langsung masuk dan bisa ditindaklanjuti otomatis. Hemat waktu, hemat tenaga, hasil makin jelas!"
+                    </div>
+                    
+                    <div class="testimonial-author">
+                        <div class="author-avatar">H</div>
+                        <div class="author-info">
+                            <h4>Hilma</h4>
+                            <p>Advertising Specialist</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">
+                        "Otomatix bantu kami menjaga hubungan pelanggan dengan lebih konsisten. Reminder follow-up, broadcast, sampai segmentasi semuanya jalan otomatis. CRM kami sekarang lebih rapi dan respons pelanggan juga meningkat!"
+                    </div>
+                    
+                    <div class="testimonial-author">
+                        <div class="author-avatar">R</div>
+                        <div class="author-info">
+                            <h4>Rifka</h4>
+                            <p>CRM Manager</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1736,11 +1799,12 @@
                 observer.observe(demoChat);
             }
 
-            // Observe testimonial content
-            const testimonialContent = document.querySelector('.testimonial-content');
-            if (testimonialContent) {
-                observer.observe(testimonialContent);
-            }
+            // Observe testimonial cards
+            document.querySelectorAll('.testimonial-card').forEach((card, index) => {
+                setTimeout(() => {
+                    observer.observe(card);
+                }, index * 200);
+            });
 
             // Observe pricing cards
             document.querySelectorAll('.pricing-card').forEach((card, index) => {
