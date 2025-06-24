@@ -280,12 +280,41 @@
             transform: translateX(0);
         }
 
+        .demo-video {
+            position: relative;
+        }
+
         .demo-video video {
             width: 100%;
             height: auto;
             border-radius: 16px;
             box-shadow: 0 20px 40px rgba(0, 31, 63, 0.1);
             border: 2px solid var(--gray-100);
+            background: var(--gray-100);
+        }
+
+        .video-overlay {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: rgba(0, 31, 63, 0.9);
+            color: var(--white);
+            padding: 1rem;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+
+        .video-description h4 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .video-description p {
+            margin: 0;
+            font-size: 0.9rem;
+            opacity: 0.9;
         }
 
         .demo-video::before {
@@ -1089,11 +1118,17 @@
                 </div>
                 
                 <div class="demo-video">
-                    <video controls poster="https://images.pexels.com/photos/5473298/pexels-photo-5473298.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
-                        <source src="https://videos.pexels.com/video-files/5473298/5473298-uhd_2560_1440_30fps.mp4" type="video/mp4">
-                        <source src="https://videos.pexels.com/video-files/8761193/8761193-uhd_2560_1440_30fps.mp4" type="video/mp4">
-                        Video browser Anda tidak mendukung tag video.
+                    <video controls preload="metadata" width="100%" height="auto">
+                        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                        <p>Browser Anda tidak mendukung video HTML5. <a href="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4">Download video</a> untuk menonton.</p>
                     </video>
+                    <div class="video-overlay">
+                        <div class="video-description">
+                            <h4>Demo Sistem Otomasi AI</h4>
+                            <p>Lihat bagaimana teknologi AI kami bekerja dalam menangani interaksi pelanggan secara otomatis</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
