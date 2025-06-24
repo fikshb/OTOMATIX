@@ -94,7 +94,7 @@ Changelog:
 - June 24, 2025. Added playful hover animations to all interactive elements including buttons, cards, form inputs with smooth transitions, scaling effects, shimmer animations, and bounce effects
 - June 24, 2025. Updated location from Jakarta to Bandung, Indonesia in contact information
 - June 24, 2025. Added Instagram contact link (@otomatix.digital) with clickable link to https://www.instagram.com/otomatix.digital/
-- June 24, 2025. Updated all "Minta Penawaran" buttons in pricing sections to link to contact form section (#contact) on the same page
+- June 24, 2025. Updated all "Minta Penawaran" buttons to link to contact form (#hubungi-kami) with smooth scroll behavior, added proper section ID
 ```
 
 ## User Preferences
