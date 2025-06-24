@@ -92,6 +92,7 @@ Changelog:
 - June 24, 2025. Fixed text visibility issues across all sections with proper contrast and readable colors
 - June 24, 2025. Updated contact information: email to otomatixdigital@gmail.com and phone to +62 821-3166-0176
 - June 24, 2025. Added playful hover animations to all interactive elements including buttons, cards, form inputs with smooth transitions, scaling effects, shimmer animations, and bounce effects
+- June 24, 2025. Updated location from Jakarta to Bandung, Indonesia in contact information
 ```
 
 ## User Preferences
