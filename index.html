@@ -2034,24 +2034,9 @@
                     pesanOtomatix += '• Pesan: ' + messageUser + '\n';
                     pesanOtomatix += '\nTerima kasih!';
                     
-                    // Log untuk debugging - tampilkan semua detail
-                    console.log('=== DEBUG WHATSAPP MESSAGE ===');
-                    console.log('1. Pesan Original:', pesanOtomatix);
-                    console.log('2. Pesan Encoded:', encodeURIComponent(pesanOtomatix));
-                    
                     // Encode untuk WhatsApp
                     const encodedPesan = encodeURIComponent(pesanOtomatix);
                     const urlWhatsApp = 'https://wa.me/6282131660176?text=' + encodedPesan;
-                    
-                    console.log('3. URL Lengkap WhatsApp:', urlWhatsApp);
-                    console.log('4. URL Length:', urlWhatsApp.length);
-                    console.log('===============================');
-                    
-                    // Tampilkan alert dengan detail lengkap
-                    alert('DEBUG INFO:\n\n' + 
-                          'PESAN ORIGINAL:\n' + pesanOtomatix + '\n\n' +
-                          'PESAN ENCODED:\n' + encodedPesan + '\n\n' +
-                          'URL WHATSAPP:\n' + urlWhatsApp);
                     
                     // Buka WhatsApp dengan pesan OTOMATIX
                     window.open(urlWhatsApp, '_blank');
