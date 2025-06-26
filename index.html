@@ -2019,15 +2019,15 @@
                     var paket = document.getElementById('interestedPackage').value || '';
                     var message = document.getElementById('message').value || '';
                     
-                    // Buat pesan WhatsApp
+                    // Buat pesan WhatsApp dengan format yang tepat
                     var whatsappMessage = 'Halo Otomatix, saya ingin konsultasi bisnis:\n\n';
                     whatsappMessage += 'Data Konsultasi\n';
-                    whatsappMessage += '• Nama: ' + nama + '\n';
-                    whatsappMessage += '• Email: ' + email + '\n';
-                    if (phone) whatsappMessage += '• WhatsApp: ' + phone + '\n';
-                    if (company) whatsappMessage += '• Perusahaan: ' + company + '\n';
-                    if (paket) whatsappMessage += '• Paket: ' + paket + '\n';
-                    if (message) whatsappMessage += '• Pesan: ' + message + '\n';
+                    whatsappMessage += '• Nama: ' + (nama || '[Tidak diisi]') + '\n';
+                    whatsappMessage += '• Email: ' + (email || '[Tidak diisi]') + '\n';
+                    whatsappMessage += '• WhatsApp: ' + (phone || '[Tidak diisi]') + '\n';
+                    whatsappMessage += '• Perusahaan: ' + (company || '[Tidak diisi]') + '\n';
+                    whatsappMessage += '• Paket: ' + (paket || '[Tidak dipilih]') + '\n';
+                    whatsappMessage += '• Pesan: ' + (message || '[Tidak ada pesan]') + '\n';
                     whatsappMessage += '\nTerima kasih!';
                     
                     // Encode pesan untuk URL

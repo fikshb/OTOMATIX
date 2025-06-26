@@ -95,6 +95,7 @@ Changelog:
 - June 24, 2025. Updated location from Jakarta to Bandung, Indonesia in contact information
 - June 24, 2025. Added Instagram contact link (@otomatix.digital) with clickable link to https://www.instagram.com/otomatix.digital/
 - June 24, 2025. Updated all "Minta Penawaran" buttons to link to contact form (#hubungi-kami) with smooth scroll behavior, added proper section ID
+- June 26, 2025. Updated WhatsApp message format to use "Halo Otomatix" greeting with proper structured data format including all form fields
 ```
 
 ## User Preferences
