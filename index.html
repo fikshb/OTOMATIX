@@ -1932,8 +1932,9 @@
     </section>
 
     <script>
-        // Cache buster - force refresh
+        // Cache buster - force refresh - OTOMATIX VERSION
         var cacheBuster = new Date().getTime();
+        console.log('OTOMATIX Script Loaded:', cacheBuster);
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -2007,8 +2008,9 @@
                 }, index * 100);
             });
 
-            // WhatsApp form handler - OTOMATIX VERSION 2025
+            // WhatsApp form handler - OTOMATIX VERSION 2025 - UPDATED
             const formKonsultasi = document.getElementById('contactForm');
+            console.log('Form handler loaded for OTOMATIX');
             if (formKonsultasi) {
                 formKonsultasi.addEventListener('submit', function(event) {
                     event.preventDefault();
@@ -2021,7 +2023,7 @@
                     const paketUser = document.getElementById('interestedPackage').value;
                     const messageUser = document.getElementById('message').value.trim();
                     
-                    // Buat pesan untuk OTOMATIX
+                    // Buat pesan untuk OTOMATIX - UPDATED VERSION
                     let pesanOtomatix = 'Halo Otomatix, saya ingin konsultasi bisnis:\n\n';
                     pesanOtomatix += '*Data Konsultasi*\n';
                     pesanOtomatix += '• Nama: ' + namaUser + '\n';
@@ -2085,3 +2087,4 @@
 </body>
 </html>
 /* Cache buster: 1750918453 */
+// Updated at Thu Jun 26 06:38:23 AM UTC 2025
