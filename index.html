@@ -2005,43 +2005,46 @@
                 }, index * 100);
             });
 
-            // WhatsApp form handler
+            // WhatsApp form handler - Updated 2025
             var contactForm = document.getElementById('contactForm');
             if (contactForm) {
-                contactForm.onsubmit = function(e) {
+                contactForm.addEventListener('submit', function(e) {
                     e.preventDefault();
                     
                     // Ambil data form
-                    var nama = document.getElementById('name').value || '';
-                    var email = document.getElementById('email').value || '';
-                    var phone = document.getElementById('phone').value || '';
-                    var company = document.getElementById('company').value || '';
+                    var nama = document.getElementById('name').value.trim() || '';
+                    var email = document.getElementById('email').value.trim() || '';
+                    var phone = document.getElementById('phone').value.trim() || '';
+                    var company = document.getElementById('company').value.trim() || '';
                     var paket = document.getElementById('interestedPackage').value || '';
-                    var message = document.getElementById('message').value || '';
+                    var message = document.getElementById('message').value.trim() || '';
                     
-                    // Buat pesan WhatsApp dengan format yang tepat
-                    var whatsappMessage = 'Halo Otomatix, saya ingin konsultasi bisnis:\n\n';
-                    whatsappMessage += 'Data Konsultasi\n';
-                    whatsappMessage += '• Nama: ' + (nama || '[Tidak diisi]') + '\n';
-                    whatsappMessage += '• Email: ' + (email || '[Tidak diisi]') + '\n';
-                    whatsappMessage += '• WhatsApp: ' + (phone || '[Tidak diisi]') + '\n';
-                    whatsappMessage += '• Perusahaan: ' + (company || '[Tidak diisi]') + '\n';
-                    whatsappMessage += '• Paket: ' + (paket || '[Tidak dipilih]') + '\n';
-                    whatsappMessage += '• Pesan: ' + (message || '[Tidak ada pesan]') + '\n';
-                    whatsappMessage += '\nTerima kasih!';
+                    // Format pesan WhatsApp sesuai spesifikasi
+                    var whatsappText = 'Halo Otomatix, saya ingin konsultasi bisnis:\n\n';
+                    whatsappText += 'Data Konsultasi\n';
+                    whatsappText += '• Nama: ' + (nama || '[Tidak diisi]') + '\n';
+                    whatsappText += '• Email: ' + (email || '[Tidak diisi]') + '\n';
+                    whatsappText += '• WhatsApp: ' + (phone || '[Tidak diisi]') + '\n';
+                    whatsappText += '• Perusahaan: ' + (company || '[Tidak diisi]') + '\n';
+                    whatsappText += '• Paket: ' + (paket || '[Tidak dipilih]') + '\n';
+                    whatsappText += '• Pesan: ' + (message || '[Tidak ada pesan]') + '\n';
+                    whatsappText += '\nTerima kasih!';
                     
-                    // Encode pesan untuk URL
-                    var encodedMessage = encodeURIComponent(whatsappMessage);
+                    // Debug log untuk memastikan format benar
+                    console.log('WhatsApp Message:', whatsappText);
+                    
+                    // Encode untuk WhatsApp URL
+                    var encodedText = encodeURIComponent(whatsappText);
+                    var whatsappURL = 'https://wa.me/6282131660176?text=' + encodedText;
                     
                     // Buka WhatsApp
-                    var waURL = 'https://wa.me/6282131660176?text=' + encodedMessage;
-                    window.open(waURL, '_blank');
+                    window.open(whatsappURL, '_blank');
                     
                     // Reset form
-                    contactForm.reset();
+                    this.reset();
                     
                     return false;
-                };
+                });
             }
         });
 
