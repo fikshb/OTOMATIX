@@ -1932,6 +1932,8 @@
     </section>
 
     <script>
+        // Cache buster - force refresh
+        var cacheBuster = new Date().getTime();
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -2030,8 +2032,9 @@
                     whatsappText += '• Pesan: ' + message + '\n';
                     whatsappText += '\nTerima kasih!';
                     
-                    // Debug log untuk memastikan format benar
+                    // Debug log dan alert untuk memastikan format benar
                     console.log('WhatsApp Message:', whatsappText);
+                    alert('Pesan yang akan dikirim:\n\n' + whatsappText);
                     
                     // Encode untuk WhatsApp URL
                     var encodedText = encodeURIComponent(whatsappText);
