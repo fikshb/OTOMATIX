@@ -2007,43 +2007,42 @@
                 }, index * 100);
             });
 
-            // WhatsApp form handler - Updated 2025
-            var contactForm = document.getElementById('contactForm');
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
+            // WhatsApp form handler - OTOMATIX VERSION 2025
+            const formKonsultasi = document.getElementById('contactForm');
+            if (formKonsultasi) {
+                formKonsultasi.addEventListener('submit', function(event) {
+                    event.preventDefault();
                     
-                    // Ambil data form
-                    var nama = document.getElementById('name').value.trim() || '';
-                    var email = document.getElementById('email').value.trim() || '';
-                    var phone = document.getElementById('phone').value.trim() || '';
-                    var company = document.getElementById('company').value.trim() || '';
-                    var paket = document.getElementById('interestedPackage').value || '';
-                    var message = document.getElementById('message').value.trim() || '';
+                    // Ambil semua data dari form
+                    const namaUser = document.getElementById('name').value.trim();
+                    const emailUser = document.getElementById('email').value.trim();
+                    const phoneUser = document.getElementById('phone').value.trim();
+                    const companyUser = document.getElementById('company').value.trim();
+                    const paketUser = document.getElementById('interestedPackage').value;
+                    const messageUser = document.getElementById('message').value.trim();
                     
-                    // Format pesan WhatsApp sesuai spesifikasi dengan bold formatting
-                    var whatsappText = 'Halo Otomatix, saya ingin konsultasi bisnis:\n\n';
-                    whatsappText += '*Data Konsultasi*\n';
-                    whatsappText += '• Nama: ' + nama + '\n';
-                    whatsappText += '• Email: ' + email + '\n';
-                    whatsappText += '• WhatsApp: ' + phone + '\n';
-                    whatsappText += '• Perusahaan: ' + company + '\n';
-                    whatsappText += '• Paket: ' + paket + '\n';
-                    whatsappText += '• Pesan: ' + message + '\n';
-                    whatsappText += '\nTerima kasih!';
+                    // Buat pesan untuk OTOMATIX (bukan Pixel & Co)
+                    let pesanOtomatix = 'Halo Otomatix, saya ingin konsultasi bisnis:\n\n';
+                    pesanOtomatix += '*Data Konsultasi*\n';
+                    pesanOtomatix += '• Nama: ' + namaUser + '\n';
+                    pesanOtomatix += '• Email: ' + emailUser + '\n';
+                    pesanOtomatix += '• WhatsApp: ' + phoneUser + '\n';
+                    pesanOtomatix += '• Perusahaan: ' + companyUser + '\n';
+                    pesanOtomatix += '• Paket: ' + paketUser + '\n';
+                    pesanOtomatix += '• Pesan: ' + messageUser + '\n';
+                    pesanOtomatix += '\nTerima kasih!';
                     
-                    // Debug log dan alert untuk memastikan format benar
-                    console.log('WhatsApp Message:', whatsappText);
-                    alert('Pesan yang akan dikirim:\n\n' + whatsappText);
+                    // Log untuk debugging
+                    console.log('OTOMATIX Message:', pesanOtomatix);
                     
-                    // Encode untuk WhatsApp URL
-                    var encodedText = encodeURIComponent(whatsappText);
-                    var whatsappURL = 'https://wa.me/6282131660176?text=' + encodedText;
+                    // Encode untuk WhatsApp
+                    const encodedPesan = encodeURIComponent(pesanOtomatix);
+                    const urlWhatsApp = 'https://wa.me/6282131660176?text=' + encodedPesan;
                     
-                    // Buka WhatsApp
-                    window.open(whatsappURL, '_blank');
+                    // Buka WhatsApp dengan pesan OTOMATIX
+                    window.open(urlWhatsApp, '_blank');
                     
-                    // Reset form
+                    // Reset form setelah kirim
                     this.reset();
                     
                     return false;
@@ -2073,3 +2072,4 @@
     </script>
 </body>
 </html>
+/* Cache buster: 1750918453 */
