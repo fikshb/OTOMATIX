@@ -2019,15 +2019,15 @@
                     var paket = document.getElementById('interestedPackage').value || '';
                     var message = document.getElementById('message').value.trim() || '';
                     
-                    // Format pesan WhatsApp sesuai spesifikasi
+                    // Format pesan WhatsApp sesuai spesifikasi dengan bold formatting
                     var whatsappText = 'Halo Otomatix, saya ingin konsultasi bisnis:\n\n';
-                    whatsappText += 'Data Konsultasi\n';
-                    whatsappText += '• Nama: ' + (nama || '[Tidak diisi]') + '\n';
-                    whatsappText += '• Email: ' + (email || '[Tidak diisi]') + '\n';
-                    whatsappText += '• WhatsApp: ' + (phone || '[Tidak diisi]') + '\n';
-                    whatsappText += '• Perusahaan: ' + (company || '[Tidak diisi]') + '\n';
-                    whatsappText += '• Paket: ' + (paket || '[Tidak dipilih]') + '\n';
-                    whatsappText += '• Pesan: ' + (message || '[Tidak ada pesan]') + '\n';
+                    whatsappText += '*Data Konsultasi*\n';
+                    whatsappText += '• Nama: ' + nama + '\n';
+                    whatsappText += '• Email: ' + email + '\n';
+                    whatsappText += '• WhatsApp: ' + phone + '\n';
+                    whatsappText += '• Perusahaan: ' + company + '\n';
+                    whatsappText += '• Paket: ' + paket + '\n';
+                    whatsappText += '• Pesan: ' + message + '\n';
                     whatsappText += '\nTerima kasih!';
                     
                     // Debug log untuk memastikan format benar
